@@ -27,8 +27,7 @@ Image.Provider.Directory.setPath(handle, IMAGE_PATH)
 Image.Provider.Directory.setCycleTime(handle, 1000)
 
 -- create a viewer instance
-local viewer = View.create()
-View.setID(viewer, 'viewer2D')
+local viewer = View.create("viewer2D1")
 
 --End of Global Scope-----------------------------------------------------------
 

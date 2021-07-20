@@ -1,20 +1,4 @@
---[[----------------------------------------------------------------------------
 
-  Application Name:
-  ImagePlayer
-
-  Summary:
-  Viewing images provided from resources in specific user interface using the
-  2D viewer available as a Package. Meta information is printed to console.
-
-  Script creates an ImageProvider which reads bitmap images from the 'resources'
-  folder. This Provider takes images with a period 1000ms, which are provided
-  asynchronously to the handleNewImage function.
-  To demo this script the emulator can be used. The image is being displayed in
-  the 2D viewer on the webpage (localhost 127.0.0.1) and the meta data is logged
-  to the console.
-
-------------------------------------------------------------------------------]]
 --Start of Global Scope---------------------------------------------------------
 
 local IMAGE_PATH = 'resources/'
@@ -60,7 +44,8 @@ local function handleNewImage(img, sensorData)
   local str = string.format("Image '%s': ts = %s ms, width = %s , height = %s", origin, timeStamp, width, height)
   print(str)
   -- present the image in the image viewer
-  View.view(viewer, img)
+  View.addImage(viewer, img)
+  View.present(viewer)
 end
 -- Register the callback function
 Image.Provider.Directory.register(handle, 'OnNewImage', handleNewImage)

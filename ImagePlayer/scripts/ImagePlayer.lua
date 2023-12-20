@@ -17,8 +17,7 @@ local viewer = View.create("viewer2D1")
 
 --Start of Function and Event Scope---------------------------------------------
 
---Declaration of the 'main' function as an entry point for the event loop
---@main()
+---Declaration of the 'main' function as an entry point for the event loop
 local function main()
   -- Starting provider after Engine.OnStarted event was received
   local success = Image.Provider.Directory.start(handle)
@@ -32,6 +31,8 @@ end
 --Registration of the 'main' function to the 'Engine.OnStarted' event
 Script.register('Engine.OnStarted', main)
 
+---@param img Image
+---@param sensorData SensorData
 local function handleNewImage(img, sensorData)
   -- get the timestamp from the metadata
   local timeStamp = SensorData.getTimestamp(sensorData)
